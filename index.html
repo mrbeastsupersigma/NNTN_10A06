@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#100d0d"><title>NÚI LỬA — Khi Trái Đất thức giấc</title>
+<style>
+:root{--bg:#100d0d;--panel:#1c1718;--red:#ff4438;--orange:#ff9b45;--cream:#fff3e7;--muted:#c7b8b2;--line:#443234}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:var(--bg);color:var(--cream);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}body{overflow:hidden}
+.deck{height:100dvh;position:relative;background:radial-gradient(ellipse at 85% 20%,#4a1716 0,transparent 32%),linear-gradient(135deg,#100d0d,#171010 65%,#28100e)}
+.slide{display:none;height:100%;width:100%;padding:clamp(28px,6vw,84px);position:relative;overflow:auto;animation:enter .38s ease both}.slide.active{display:flex;flex-direction:column;justify-content:center}
+@keyframes enter{from{opacity:.2;transform:translateY(10px)}to{opacity:1;transform:none}}
+.eyebrow{color:var(--orange);font-weight:800;text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;display:flex;align-items:center;gap:10px}.eyebrow:before{content:"";width:28px;height:2px;background:var(--red)}
+h1,h2,h3,p{margin-top:0}h1{font-size:clamp(3rem,8vw,7.7rem);line-height:.91;letter-spacing:-.065em;max-width:1000px;margin:24px 0}h1 em{font-style:normal;color:var(--red)}h2{font-size:clamp(2rem,5vw,4.5rem);line-height:1;letter-spacing:-.045em;max-width:1000px;margin:18px 0 30px}h3{font-size:1.15rem;margin-bottom:10px}.lead{font-size:clamp(1.1rem,2vw,1.5rem);line-height:1.55;color:#e5d5ce;max-width:850px}.muted{color:var(--muted);line-height:1.6}.small{font-size:.82rem;color:var(--muted)}.accent{color:var(--orange)}.red{color:var(--red)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:1100px}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.card{background:linear-gradient(145deg,#241a1b,#171213);border:1px solid var(--line);padding:clamp(17px,2.3vw,27px);border-radius:18px;min-width:0}.number{font-size:2rem;font-weight:900;color:var(--red);line-height:1;margin-bottom:15px}.card p{color:var(--muted);line-height:1.55;margin-bottom:0}.pill{display:inline-block;padding:7px 11px;border:1px solid #76403b;border-radius:99px;color:#ffd0b5;font-size:.8rem;margin:4px 5px 0 0}.split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(22px,5vw,70px);align-items:center}.visual{border-radius:22px;overflow:hidden;border:1px solid #65302a;background:#281411;min-height:240px;position:relative}.visual img{width:100%;height:100%;min-height:260px;max-height:430px;object-fit:cover;display:block}.visual figcaption{padding:11px 14px;font-size:.75rem;color:#e8c7b8;background:#170f0f}.metric{font-size:clamp(2.5rem,6vw,5rem);font-weight:900;letter-spacing:-.06em;color:var(--orange)}.quote{font-size:clamp(1.4rem,3vw,2.7rem);line-height:1.3;max-width:900px;border-left:4px solid var(--red);padding-left:24px}.timeline{border-left:2px solid #7c302a;margin-left:9px;padding-left:25px;display:grid;gap:18px;max-width:900px}.timeline div{position:relative}.timeline div:before{content:"";position:absolute;width:11px;height:11px;border-radius:50%;background:var(--orange);left:-32px;top:5px}.timeline strong{color:var(--orange);display:block;margin-bottom:5px}.big-number{position:absolute;right:5vw;top:5vh;color:#ffffff08;font-size:clamp(7rem,25vw,22rem);font-weight:1000;line-height:1;pointer-events:none}.foot{position:absolute;bottom:20px;left:clamp(28px,6vw,84px);right:clamp(28px,6vw,84px);display:flex;justify-content:space-between;align-items:center;color:#a89590;font-size:.75rem;pointer-events:none}.progress{position:absolute;top:0;left:0;height:3px;background:var(--red);width:0;transition:width .2s}.controls{position:absolute;right:clamp(20px,4vw,55px);bottom:14px;display:flex;gap:8px;z-index:10}.controls button{border:1px solid #67403b;background:#211819;color:var(--cream);padding:10px 14px;border-radius:12px;cursor:pointer;font-size:1rem}.controls button:hover{background:#44201e}.dots{display:flex;gap:5px;align-items:center;margin-right:5px}.dots button{padding:0;width:7px;height:7px;border:0;border-radius:99px;background:#68423d}.dots button.on{width:22px;background:var(--orange)}.source-list{display:grid;gap:13px;max-width:1000px}.source-list a{color:#ffc19a;overflow-wrap:anywhere}.source-list li{line-height:1.5;margin-bottom:6px}.image-note{font-size:.78rem;color:var(--muted);margin-top:8px}.closing{background:radial-gradient(ellipse at 70% 70%,#8d241b 0,transparent 35%),linear-gradient(130deg,#100d0d,#2a100e)}
+@media(max-width:760px){.slide{padding:30px 23px 78px}.split{grid-template-columns:1fr;gap:18px}.grid,.grid.three{grid-template-columns:1fr}.visual img{min-height:170px;max-height:220px}.foot{left:23px;right:23px;bottom:10px}.dots{display:none}.card{padding:16px}.slide.active{justify-content:flex-start;padding-top:45px}.title-slide.active,.closing.active{justify-content:center}.big-number{top:2vh}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main class="deck" aria-label="Bài trình chiếu về núi lửa phun trào">
+<div class="progress" id="progress"></div>
+<section class="slide active title-slide" data-title="Mở đầu">
+<div class="eyebrow">Khám phá hiện tượng tự nhiên</div>
+<h1>NÚI LỬA<br><em>PHUN TRÀO</em></h1>
+<p class="lead">Khi lòng đất giải phóng năng lượng — sức mạnh hủy diệt, dấu hiệu cảnh báo và những giá trị được tái sinh.</p>
+<div style="margin-top:24px"><span class="pill">Khoa học Trái Đất</span><span class="pill">13 trang trình chiếu</span><span class="pill">Dùng ← → để điều khiển</span></div>
+<div class="foot"><span>HÀNH TRÌNH VÀO LÒNG ĐẤT</span><span>01 / 13</span></div>
+</section>
+<section class="slide" data-title="Bức tranh tổng quan"><div class="big-number">01</div><div class="eyebrow">Tổng quan</div><h2>Một hiện tượng —<br><span class="red">nhiều mặt đối lập</span></h2><div class="grid three">
+<div class="card"><div class="number">01</div><h3>Năng lượng</h3><p>Nhiệt bên trong Trái Đất làm đá nóng chảy, tạo magma và áp suất.</p></div>
+<div class="card"><div class="number">02</div><h3>Nguy hiểm</h3><p>Dung nham, tro bụi, dòng mật vụ và khí độc có thể đe dọa cộng đồng.</p></div>
+<div class="card"><div class="number">03</div><h3>Tái sinh</h3><p>Đá núi lửa phong hóa tạo đất màu mỡ; nhiệt lòng đất có thể thành nguồn năng lượng.</p></div>
+</div><p class="muted" style="margin-top:22px">Câu hỏi xuyên suốt: Vì sao núi lửa phun trào, làm sao nhận biết và chúng ta cần làm gì?</p><div class="foot"><span>KHÁI QUÁT</span><span>02 / 13</span></div></section>
+<section class="slide" data-title="Bản chất và nguyên nhân"><div class="eyebrow">01 · Bản chất và nguyên nhân</div><h2>Điều gì đang diễn ra <span class="red">dưới chân ta?</span></h2><div class="split"><div><div class="timeline">
+<div><strong>1. Nhiệt và đá nóng chảy</strong><p class="muted">Nhiệt độ cao, giảm áp suất hoặc nước bổ sung vào đá có thể làm một phần đá trong lớp phủ/vỏ Trái Đất nóng chảy.</p></div>
+<div><strong>2. Magma tích tụ</strong><p class="muted">Magma — đá nóng chảy chứa tinh thể và khí — có thể tập trung trong các buồng magma.</p></div>
+<div><strong>3. Áp suất tăng</strong><p class="muted">Khí hòa tan tách thành bọt khi magma đi lên; áp suất và lực nổi thúc đẩy magma tiến về mặt đất.</p></div>
+<div><strong>4. Phun trào</strong><p class="muted">Khi áp suất vượt sức kháng của đá phủ, magma, khí và vật liệu núi lửa thoát ra ngoài.</p></div>
+</div></div><figure class="visual"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Volcano_eruption.jpg" alt="Minh họa núi lửa đang phun trào" loading="lazy"><figcaption>Hình minh họa núi lửa phun trào · Wikimedia Commons</figcaption></figure></div><div class="foot"><span>CƠ CHẾ MAGMA</span><span>03 / 13</span></div></section>
+<section class="slide" data-title="Vì sao núi lửa phun trào?"><div class="eyebrow">01 · Động lực</div><h2>Ba yếu tố thúc đẩy <span class="accent">magma đi lên</span></h2><div class="grid">
+<div class="card"><div class="number">A</div><h3>Lực nổi</h3><p>Magma thường nhẹ hơn đá rắn xung quanh nên có xu hướng dâng lên qua các khe nứt.</p></div>
+<div class="card"><div class="number">B</div><h3>Khí hòa tan</h3><p>Hơi nước, CO₂ và SO₂ có thể tạo bọt khi áp suất giảm, làm magma giãn nở và tăng khả năng nổ.</p></div>
+<div class="card"><div class="number">C</div><h3>Kiến tạo mảng</h3><p>Núi lửa phổ biến ở ranh giới mảng: nơi mảng hút chìm, tách giãn và tại một số điểm nóng.</p></div>
+<div class="card"><div class="number">!</div><h3>Không phải lúc nào cũng phun</h3><p>Magma có thể nguội và đông đặc dưới lòng đất. Mỗi hệ thống núi lửa có cơ chế riêng.</p></div>
+</div><div class="foot"><span>NGUỒN GỐC NĂNG LƯỢNG</span><span>04 / 13</span></div></section>
+<section class="slide" data-title="Hai kiểu phun trào"><div class="eyebrow">02 · Các kiểu phun trào chính</div><h2>Êm dịu hay <span class="red">bùng nổ?</span></h2><div class="grid">
+<div class="card" style="border-top:3px solid #ff9b45"><span class="pill">Phun trào tương đối êm</span><h3 style="margin-top:15px">Dung nham chảy</h3><p>Thường liên quan magma bazan loãng, ít nhớt và khí dễ thoát. Dung nham tràn theo sườn, phá hủy nhà cửa và đường sá nhưng thường di chuyển chậm hơn dòng mật vụ.</p><p style="margin-top:14px;color:var(--orange)">Từ khóa: dòng chảy · tràn lan · nhiệt cao</p></div>
+<div class="card" style="border-top:3px solid var(--red)"><span class="pill">Phun trào nổ dữ dội</span><h3 style="margin-top:15px">Tro bụi và cột phun</h3><p>Magma nhớt giữ khí, áp suất tăng rồi giải phóng đột ngột. Tro, đá vụn và dòng mật vụ nóng có thể lan nhanh trên diện rộng.</p><p style="margin-top:14px;color:var(--red)">Từ khóa: áp suất · tro bụi · dòng mật vụ</p></div>
+</div><p class="muted" style="margin-top:20px">Mức độ nguy hiểm không chỉ phụ thuộc vào kiểu phun trào mà còn vào địa hình, lượng vật liệu và khoảng cách tới khu dân cư.</p><div class="foot"><span>SO SÁNH KIỂU PHUN TRÀO</span><span>05 / 13</span></div></section>
+<section class="slide" data-title="Dấu hiệu nhận biết sớm"><div class="eyebrow">03 · Dấu hiệu nhận biết sớm</div><h2>Núi lửa có thể “báo trước” <span class="accent">điều gì?</span></h2><div class="split"><div class="grid" style="grid-template-columns:1fr">
+<div class="card"><h3>Động đất nhỏ, rung chấn</h3><p>Magma di chuyển làm đá nứt vỡ; thiết bị có thể ghi nhận các chuỗi địa chấn bất thường.</p></div>
+<div class="card"><h3>Biến dạng mặt đất</h3><p>Sườn núi hoặc miệng núi có thể phồng, nghiêng hay dịch chuyển do magma và khí tích tụ.</p></div>
+<div class="card"><h3>Thay đổi khí và nhiệt</h3><p>Lưu lượng SO₂/CO₂, nhiệt độ, hơi nước hoặc hoạt động thủy nhiệt có thể thay đổi.</p></div>
+</div><figure class="visual"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Mount_St._Helens_eruption_1980.jpg" alt="Núi lửa phun trào tạo cột tro lớn" loading="lazy"><figcaption>Cột tro trong một vụ phun trào · Wikimedia Commons</figcaption></figure></div><p class="small">Lưu ý: không có một dấu hiệu đơn lẻ nào dự báo chắc chắn thời điểm phun trào. Cần theo dõi tổng hợp dữ liệu và cảnh báo của cơ quan chuyên môn.</p><div class="foot"><span>THEO DÕI KHOA HỌC</span><span>06 / 13</span></div></section>
+<section class="slide" data-title="Hậu quả trực tiếp"><div class="eyebrow">04 · Hậu quả và tác động</div><h2>Nguy hiểm đến từ <span class="red">nhiều hướng</span></h2><div class="grid three">
+<div class="card"><div class="number">01</div><h3>Dòng mật vụ</h3><p>Hỗn hợp khí nóng, tro và đá di chuyển rất nhanh; cực kỳ nguy hiểm và khó thoát nếu ở gần.</p></div>
+<div class="card"><div class="number">02</div><h3>Tro bụi</h3><p>Gây kích ứng mắt, da, đường hô hấp; làm mái yếu sập, hỏng máy móc và giảm tầm nhìn.</p></div>
+<div class="card"><div class="number">03</div><h3>Dung nham & bùn đá</h3><p>Thiêu đốt, chôn vùi tài sản; mưa lớn có thể cuốn tro thành dòng bùn núi lửa (lahar).</p></div>
+</div><p class="quote" style="margin-top:24px">“Ở gần núi lửa đang hoạt động, <span class="red">tuân thủ sơ tán</span> quan trọng hơn việc quan sát tận mắt.”</p><div class="foot"><span>AN TOÀN CON NGƯỜI</span><span>07 / 13</span></div></section>
+<section class="slide" data-title="Hệ sinh thái, khí hậu và kinh tế"><div class="eyebrow">04 · Tác động rộng hơn</div><h2>Tác động lan từ địa phương <span class="accent">đến toàn cầu</span></h2><div class="grid">
+<div class="card"><h3>🌿 Hệ sinh thái</h3><p>Thảm thực vật và nơi sống có thể bị phá hủy; sông hồ bị tro làm đục. Về lâu dài, cảnh quan mới tạo môi trường sống mới.</p></div>
+<div class="card"><h3>🌍 Khí hậu</h3><p>SO₂ vào tầng bình lưu có thể tạo aerosol sulfate phản xạ ánh sáng và làm mát tạm thời. CO₂ núi lửa có ảnh hưởng dài hạn nhỏ hơn nhiều so với phát thải của con người hiện nay.</p></div>
+<div class="card"><h3>🏙️ Kinh tế & hạ tầng</h3><p>Thiệt hại nhà cửa, nông nghiệp, giao thông, hàng không và du lịch; chi phí sơ tán và phục hồi có thể kéo dài.</p></div>
+<div class="card"><h3>🧭 Cộng đồng</h3><p>Gián đoạn học tập, việc làm, nguồn nước và sinh kế; người dễ tổn thương cần được hỗ trợ ưu tiên.</p></div>
+</div><div class="foot"><span>ĐỊA PHƯƠNG · TOÀN CẦU</span><span>08 / 13</span></div></section>
+<section class="slide" data-title="Kỹ năng ứng phó"><div class="eyebrow">05 · Biện pháp ứng phó, bảo vệ</div><h2>Chuẩn bị trước — <span class="red">bình tĩnh khi có lệnh</span></h2><div class="grid">
+<div class="card"><div class="number">01</div><h3>Lập kế hoạch</h3><p>Biết tuyến sơ tán, điểm tập kết, phương án liên lạc và nơi trú an toàn của gia đình.</p></div>
+<div class="card"><div class="number">02</div><h3>Túi khẩn cấp</h3><p>Nước uống, thuốc cá nhân, giấy tờ, đèn pin, pin dự phòng, radio, kính bảo hộ và khẩu trang phù hợp.</p></div>
+<div class="card"><div class="number">03</div><h3>Sơ tán đúng lúc</h3><p>Đi theo hướng dẫn chính thức, tránh thung lũng và lòng sông có nguy cơ lahar; không quay lại vùng nguy hiểm.</p></div>
+<div class="card"><div class="number">04</div><h3>Tránh tro bụi</h3><p>Ở trong nhà khi được khuyến cáo; đóng cửa, che khe thông gió và hạn chế lái xe trong điều kiện tầm nhìn kém.</p></div>
+</div><div class="foot"><span>KẾ HOẠCH AN TOÀN</span><span>09 / 13</span></div></section>
+<section class="slide" data-title="Phòng độc và bảo vệ hô hấp"><div class="eyebrow">05 · Khi tro bụi bao phủ</div><h2>Bảo vệ đường thở <span class="accent">đúng cách</span></h2><div class="split"><div><div class="timeline">
+<div><strong>Đeo khẩu trang phù hợp</strong><p class="muted">Ưu tiên khẩu trang lọc hạt đạt chuẩn như N95/P2, đeo kín khít theo hướng dẫn nhà sản xuất. Khẩu trang vải thông thường lọc tro mịn kém hơn.</p></div>
+<div><strong>Bảo vệ mắt và da</strong><p class="muted">Dùng kính bảo hộ kín, áo dài tay; kính áp tròng có thể gây khó chịu khi nhiều tro bụi.</p></div>
+<div><strong>Giảm tiếp xúc</strong><p class="muted">Ở trong nhà, đóng cửa sổ, tắt hệ thống hút gió đưa không khí ngoài vào nếu an toàn; theo dõi thông báo địa phương.</p></div>
+<div><strong>Sau khi tro lắng</strong><p class="muted">Làm ẩm nhẹ tro trước khi dọn để giảm bụi, tránh làm mái quá tải và không tự dọn mái nếu có nguy cơ ngã/sập.</p></div>
+</div></div><div class="card"><div class="metric">N95 / P2</div><h3>Quan trọng nhất: độ kín khít</h3><p class="muted">Khẩu trang lọc hạt không bảo vệ khỏi mọi loại khí độc. Nếu có cảnh báo khí núi lửa, hãy rời khỏi khu vực theo hướng dẫn chính thức; không tự ý dùng mặt nạ lọc khí không phù hợp.</p><p class="small" style="margin-top:16px">Khó thở, đau ngực hoặc triệu chứng nặng: tìm trợ giúp y tế khẩn cấp.</p></div></div><div class="foot"><span>BẢO VỆ HÔ HẤP</span><span>10 / 13</span></div></section>
+<section class="slide" data-title="Lợi ích sau phun trào"><div class="eyebrow">06 · Lợi ích sau phun trào</div><h2>Từ tro tàn đến <span class="accent">nguồn sống mới</span></h2><div class="split"><div class="grid" style="grid-template-columns:1fr">
+<div class="card"><h3>🌱 Đất núi lửa màu mỡ</h3><p>Tro và đá phong hóa giải phóng khoáng chất, có thể tạo đất tốt cho cây trồng theo thời gian — nhưng đất mới không phải lúc nào cũng lập tức màu mỡ.</p></div>
+<div class="card"><h3>⛏️ Khoáng sản & vật liệu</h3><p>Một số vùng núi lửa gắn với mỏ kim loại, lưu huỳnh, đá xây dựng và vật liệu công nghiệp.</p></div>
+<div class="card"><h3>♨️ Năng lượng địa nhiệt</h3><p>Nhiệt trong lòng đất có thể được khai thác để sưởi ấm hoặc phát điện nếu điều kiện địa chất và kỹ thuật phù hợp.</p></div>
+<div class="card"><h3>🧗 Du lịch & nghiên cứu</h3><p>Cảnh quan núi lửa thu hút du lịch, đồng thời giúp khoa học hiểu rõ hơn về hệ thống Trái Đất.</p></div>
+</div><figure class="visual"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Volcanic_landscape.jpg" alt="Cảnh quan địa hình núi lửa" loading="lazy"><figcaption>Cảnh quan núi lửa · Wikimedia Commons</figcaption></figure></div><div class="foot"><span>GIÁ TRỊ LÂU DÀI</span><span>11 / 13</span></div></section>
+<section class="slide" data-title="Một số vụ phun trào lớn"><div class="eyebrow">07 · Một số vụ phun trào lớn</div><h2>Những sự kiện <span class="red">đã thay đổi lịch sử</span></h2><div class="timeline">
+<div><strong>79 · Vesuvius, Ý</strong><p class="muted">Vùi lấp Pompeii và Herculaneum; cho thấy dòng vật liệu nóng và tro có thể hủy diệt các khu dân cư.</p></div>
+<div><strong>1815 · Tambora, Indonesia</strong><p class="muted">Một trong những vụ phun trào mạnh nhất được ghi nhận trong lịch sử; góp phần gây ra “năm không có mùa hè” 1816 qua ảnh hưởng khí hậu.</p></div>
+<div><strong>1883 · Krakatau, Indonesia</strong><p class="muted">Các vụ nổ lớn và sóng thần gây thương vong nghiêm trọng ở vùng lân cận.</p></div>
+<div><strong>1980 · Mount St. Helens, Hoa Kỳ</strong><p class="muted">Sạt lở sườn núi và vụ nổ ngang phá hủy diện rộng, nhấn mạnh vai trò của giám sát và vùng cấm.</p></div>
+<div><strong>1991 · Pinatubo, Philippines</strong><p class="muted">Phun trào lớn đưa SO₂ lên tầng bình lưu, góp phần làm nhiệt độ trung bình toàn cầu giảm tạm thời.</p></div>
+</div><p class="small" style="margin-top:15px">Bài học chung: giám sát khoa học, truyền tin rõ ràng và sơ tán kịp thời giúp giảm rủi ro.</p><div class="foot"><span>NHÌN LẠI LỊCH SỬ</span><span>12 / 13</span></div></section>
+<section class="slide" data-title="Nguồn tham khảo và kết thúc"><div class="eyebrow">Nguồn hình ảnh & tài liệu</div><h2>Hiểu đúng để <span class="red">sống an toàn</span></h2><div class="source-list"><p class="lead">Núi lửa vừa là một quá trình tự nhiên mạnh mẽ, vừa nhắc chúng ta về tầm quan trọng của khoa học và sự chuẩn bị.</p>
+<ul>
+<li><b>Hình ảnh minh họa:</b> Wikimedia Commons — <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Volcano_eruption.jpg" target="_blank" rel="noreferrer">Volcano eruption</a>; <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Mount_St._Helens_eruption_1980.jpg" target="_blank" rel="noreferrer">Mount St. Helens (1980)</a>; <a href="https://commons.wikimedia.org/wiki/Special:FilePath/Volcanic_landscape.jpg" target="_blank" rel="noreferrer">Volcanic landscape</a>. Liên kết có thể chuyển hướng tới trang tệp gốc.</li>
+<li><b>Kiến thức núi lửa:</b> <a href="https://www.usgs.gov/programs/VHP" target="_blank" rel="noreferrer">U.S. Geological Survey — Volcano Hazards Program</a></li>
+<li><b>Tro núi lửa và sức khỏe:</b> <a href="https://www.cdc.gov/volcanoes/about/volcanic-ash.html" target="_blank" rel="noreferrer">U.S. CDC — Volcanic Ash</a></li>
+<li><b>Giám sát và ứng phó:</b> <a href="https://www.ready.gov/volcanoes" target="_blank" rel="noreferrer">Ready.gov — Volcanoes</a></li>
+</ul><p class="small">Lưu ý: kiểm tra cảnh báo từ cơ quan ứng phó khẩn cấp và đài quan sát núi lửa tại địa phương; nội dung này phục vụ học tập, không thay thế hướng dẫn khẩn cấp.</p></div><div class="foot"><span>CẢM ƠN ĐÃ LẮNG NGHE</span><span>13 / 13</span></div></section>
+<div class="controls"><div class="dots" id="dots" aria-label="Chọn trang"></div><button id="prev" aria-label="Trang trước">←</button><button id="next" aria-label="Trang tiếp theo">→</button><button id="full" aria-label="Toàn màn hình">⛶</button></div>
+</main>
+<script>
+(()=>{const slides=[...document.querySelectorAll('.slide')],dots=document.getElementById('dots'),progress=document.getElementById('progress');let index=0;
+slides.forEach((s,i)=>{const b=document.createElement('button');b.title='Trang '+(i+1)+': '+s.dataset.title;b.setAttribute('aria-label',b.title);b.addEventListener('click',()=>show(i));dots.appendChild(b)});
+function show(n){index=(n+slides.length)%slides.length;slides.forEach((s,i)=>s.classList.toggle('active',i===index));[...dots.children].forEach((b,i)=>{b.classList.toggle('on',i===index);b.setAttribute('aria-current',i===index?'step':'false')});progress.style.width=((index+1)/slides.length*100)+'%';}
+document.getElementById('prev').addEventListener('click',()=>show(index-1));document.getElementById('next').addEventListener('click',()=>show(index+1));
+document.getElementById('full').addEventListener('click',()=>{if(!document.fullscreenElement)document.querySelector('.deck').requestFullscreen?.();else document.exitFullscreen?.()});
+document.addEventListener('keydown',e=>{if(['ArrowRight',' ','PageDown'].includes(e.key)){e.preventDefault();show(index+1)}else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(index-1)}else if(e.key==='Home')show(0);else if(e.key==='End')show(slides.length-1)});
+let x=null;document.querySelector('.deck').addEventListener('touchstart',e=>x=e.changedTouches[0].screenX,{passive:true});document.querySelector('.deck').addEventListener('touchend',e=>{if(x===null)return;const d=e.changedTouches[0].screenX-x;if(Math.abs(d)>55)show(index+(d<0?1:-1));x=null},{passive:true});show(0)})();
+</script>
+</body></html>
